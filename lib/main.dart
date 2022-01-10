@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load(fileName: ".env");
   runApp(MyApp());
 }
 
@@ -28,6 +30,7 @@ class _MapAppState extends State<MapApp> {
 
   @override
   Widget build(BuildContext context) {
+    String accTok = dotenv.env['MAPBOX_API_KEY'];
     return Stack(
       children: [
         FlutterMap(
@@ -45,7 +48,9 @@ class _MapAppState extends State<MapApp> {
           ),
           layers: [
             TileLayerOptions(
-              urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              // urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              urlTemplate:
+                  'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=$accTok',
               subdomains: ['a', 'b', 'c'],
             ),
             MarkerLayerOptions(
