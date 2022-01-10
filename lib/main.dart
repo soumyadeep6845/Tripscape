@@ -73,14 +73,23 @@ class _MapAppState extends State<MapApp> {
             children: [
               Card(
                 //Location search
-                child: TextField(),
+                child: TextField(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(16.0),
+                    hintText: "Search for a place here",
+                    prefixIcon: Icon(
+                      Icons.location_on,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                ),
               ),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: location.isEmpty
                       ? Text(
-                          'Point somewhere',
+                          'Tap anywhere on the map!',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
