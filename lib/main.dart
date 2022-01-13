@@ -48,7 +48,6 @@ class _MapAppState extends State<MapApp> {
           ),
           layers: [
             TileLayerOptions(
-              // urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
               urlTemplate:
                   'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=$accTok',
               subdomains: ['a', 'b', 'c'],
@@ -100,8 +99,6 @@ class _MapAppState extends State<MapApp> {
                           ),
                         )
                       : Text(
-                          // '${gLoc.first.featureName} : ${gLoc.first.addressLine}',
-                          // '${location.first.countryName} : ${location.first.addressLine}',
                           '${location.first.featureName}, ${location.first.locality}, ${location.first.countryName}',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
