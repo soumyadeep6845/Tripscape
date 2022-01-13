@@ -4,6 +4,8 @@
         android:label="Tripscape"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBGj8kMnmYN7vOLKA2S2zpyvIZXgs5o2DE"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
