@@ -9,7 +9,6 @@ class ApplicationBloc with ChangeNotifier {
   ApplicationBloc() {
     setCurrentLocation();
   }
-
   setCurrentLocation() async {
     currentLocation = await geoLocatorService.getCurrentLocation();
     notifyListeners();
