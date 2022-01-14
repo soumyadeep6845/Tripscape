@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: (applicationBloc.currentLocation == null)
           ? Center(
-              child: CircularProgressIndicator(),
+              child: Text('Loading...'),
             )
           : ListView(
               children: [
