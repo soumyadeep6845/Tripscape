@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Search Location',
+                    hintText: 'Search Location here',
                   ),
                 ),
                 Container(
