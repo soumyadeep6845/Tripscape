@@ -4,6 +4,7 @@ import 'package:tripscape/services/geolocator_service.dart';
 
 class ApplicationBloc with ChangeNotifier {
   final geoLocatorService = GeolocatorService();
+  
   Position currentLocation;
 
   ApplicationBloc() {
