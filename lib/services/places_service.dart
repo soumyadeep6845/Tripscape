@@ -13,6 +13,6 @@ class PlacesService {
     var response = await http.get(url);
     var json = convert.jsonDecode(response.body);
     var jsonResults = json['predictions'] as List;
-    
+    return jsonResults.map((place) => PlaceSearch.fromJson(place)).toList();
   }
 }
