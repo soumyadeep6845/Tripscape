@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tripscape/blocs/application_bloc.dart';
+import 'package:tripscape/models/place.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,6 +12,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Completer<GoogleMapController> _mapController = Completer();
+  StreamSubscription locationSubscription;
+
+  @override
+  void initState() {
+    final applicationBloc = Provider.of<ApplicationBloc>(context, listen: false);
+    locationSubscription = applicationBloc.selectedLocation.stream.listen((place) {
+      if (place != null) {
+        _goToPlace(place);
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    final applicationBloc = Provider.of<ApplicationBloc>(context, listen: false);
+    applicationBloc.dispose();
+    locationSubscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final applicationBloc = Provider.of<ApplicationBloc>(context);
@@ -56,6 +81,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           backgroundBlendMode: BlendMode.darken,
                         ),
                       ),
+                       if (applicationBloc.searchResults != null &&
+                        applicationBloc.searchResults.length != 0)
                     Container(
                       height: 300.0,
                       child: ListView.builder(
@@ -66,6 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               applicationBloc.searchResults[index].description,
                               style: TextStyle(color: Colors.white),
                             ),
+                            onTap: () {
+                              applicationBloc.setSelectedLocation(
+                                applicationBloc.searchResults[index].placeId,
+                              );
+                            },
                           );
                         },
                       ),
@@ -76,4 +108,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
     );
   }
+
+  Future<void> _goToPlace(Place place) async {
+    final GoogleMapController controller = await _mapController.future;
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(place.geometry.location.lat, place.geometry.location.lng),
+          zoom: 14.0,
+        ),
+      )
+    );
+  } 
+
 }
