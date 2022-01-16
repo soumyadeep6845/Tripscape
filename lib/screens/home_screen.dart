@@ -69,6 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           zoom: 14.0,
                         ),
+                        onMapCreated: (GoogleMapController controller) {
+                          _mapController.complete(controller);
+                        },
                       ),
                     ),
                     if (applicationBloc.searchResults != null &&
