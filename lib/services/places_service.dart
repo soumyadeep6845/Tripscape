@@ -19,7 +19,7 @@ class PlacesService {
 
   Future<Place> getPlace(String placeId) async {
     var url = Uri.parse(
-        "https://maps.googleapis.com/maps/api/place/details/json?key=$key&place_id=$placeId");
+        "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&key=$key");
     var response = await http.get(url);
     var json = convert.jsonDecode(response.body);
     var jsonResult = json['result'] as Map<String, dynamic>;
@@ -32,7 +32,7 @@ class PlacesService {
         "https://maps.googleapis.com/maps/api/place/textsearch/json?type=$placeType&location=$lat,$lng&rankby=distance&key=$key");
     var response = await http.get(url);
     var json = convert.jsonDecode(response.body);
-    var jsonResults = json['result'] as List;
+    var jsonResults = json['results'] as List;
     return jsonResults.map((place) => Place.fromJson(place)).toList();
   }
 }
