@@ -1,7 +1,7 @@
 # Tripscape 🌴
 
 <p align="center">
-   <img src="lib/assets/TRIPSCAPE.gif" alt="Logo"/>
+   <img src="lib/assets/TRIPSCAPE_banner.gif" alt="Logo"/>
 </p>
 <!-- PROJECT LOGO -->
 
