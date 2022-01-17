@@ -23,7 +23,7 @@
    -  Google Maps API
 ---
 
-## ✨ Screenshot
+## ✨ Screenshots
 
 | Homescreen | Homescreen (Filter enabled) |
 | - | - |
