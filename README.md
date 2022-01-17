@@ -25,7 +25,7 @@
 
 ## ✨ Screenshot
 
-| Homescreen | Homescreen (Filters enabled) |
+| Homescreen | Homescreen (Filter enabled) |
 | - | - |
 | ![lib/assets/Home_screen.jpeg](lib/assets/Home_screen.jpeg) | ![lib/assets/Home_screen_marker.jpeg](lib/assets/Home_screen_marker.jpeg) |
 
