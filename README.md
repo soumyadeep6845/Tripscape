@@ -21,6 +21,7 @@
 *  **API**
    -  Places API
    -  Google Maps API
+   -  Places Autocomplete API
 ---
 
 ## ✨ Screenshots
