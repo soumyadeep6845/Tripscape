@@ -43,26 +43,30 @@
 **2. Generate your own API key here**
 
    [Google Cloud Platform](https://console.cloud.google.com/home/dashboard)
+   
+**3. Don't forget to setup a billing account, to integrate Google API Services**
 
-**3. Create a .env file in root directory and add**  
+   [Google Cloud Payment Methods](https://cloud.google.com/billing/docs/how-to/payment-methods#available_payment_methods)
+
+**4. Create a .env file in root directory and add**  
 
    ```
    GOOGLE_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    ```
-**4. Install the required dependencies using**  
+**5. Install the required dependencies using**  
 
    ```
    flutter packages get
    ```
-**5. Connect any android device/emulator.**  
+**6. Connect any android device/emulator.**  
 
-**6. Run and install the app, using**
+**7. Run and install the app, using**
    
    ```
    flutter run
    ```
 
-**7. In case of general runtime difficulties, run**
+**8. In case of general runtime difficulties, run**
    
    ```
    flutter clean
@@ -71,6 +75,8 @@
    ```
    flutter packages get
    ```
+**9. Ignore if the file apk size is large. This is just for debugging purposes. Production APKs are small in size and convenient 😊**
+
 ---
 
 ## 🎈 Contributing
